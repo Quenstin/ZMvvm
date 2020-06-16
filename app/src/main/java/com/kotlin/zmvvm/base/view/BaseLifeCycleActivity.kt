@@ -2,6 +2,7 @@ package com.kotlin.zmvvm.base.view
 
 import android.text.TextUtils
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.kingja.loadsir.callback.SuccessCallback
 import com.kotlin.zmvvm.base.viewmodel.BaseViewModel
@@ -22,7 +23,7 @@ abstract class BaseLifeCycleActivity<VM : BaseViewModel<*>> : BaseActivity() {
 
     override fun initView() {
         showLoading()
-        mViewModel = ViewModelProviders.of(this).get(CommonUtil.getClass(this))
+        mViewModel = ViewModelProvider(this).get(CommonUtil.getClass(this))
         mViewModel.loadState.observe(this, observer)
 
         initDataObserver()
