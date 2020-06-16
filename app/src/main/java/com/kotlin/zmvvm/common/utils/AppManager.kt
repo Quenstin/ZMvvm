@@ -8,7 +8,7 @@ import kotlin.system.exitProcess
 
 /**
  * Created by zhgq on 2020/6/15
- * Describe：
+ * Describe：管理activity的进出栈
  */
 class AppManager {
     private val activityStack: Stack<Activity> = Stack()

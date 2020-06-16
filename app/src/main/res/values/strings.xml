@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">ZMvvm</string>
     <string name="exit_app">再按一次退出程序</string>
+    <string name="empty_message">没有数据哎~</string>
+    <string name="error_message">数据错误</string>
 
 </resources>

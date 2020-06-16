@@ -3,11 +3,8 @@ package com.kotlin.zmvvm.common.utils
 import org.greenrobot.eventbus.EventBus
 
 /**
- * Created with Android Studio.
- * Description:
- * @author: Wangjianxian
- * @date: 2020/03/27
- * Time: 18:46
+ * Created by zhgq on 2020/6/15
+ * Describe：改变主题的event
  */
 class ChangeThemeEvent {
     fun post() {

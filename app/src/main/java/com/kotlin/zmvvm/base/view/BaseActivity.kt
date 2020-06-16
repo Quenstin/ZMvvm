@@ -28,7 +28,7 @@ import java.util.*
 
 /**
  * Created by zhgq on 2020/6/15
- * Describe：
+ * Describe：activity基类
  */
 abstract class BaseActivity : AppCompatActivity() {
 

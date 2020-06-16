@@ -7,7 +7,7 @@ import kotlin.reflect.KProperty
 
 /**
  * Created by zhgq on 2020/6/15
- * Describe：
+ * Describe：sp储存
  */
 class SPreference<T>(private val name:String,private val default:T) : ReadWriteProperty<Any?,T> {
     companion object {

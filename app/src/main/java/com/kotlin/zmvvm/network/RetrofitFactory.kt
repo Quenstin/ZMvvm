@@ -1,5 +1,6 @@
 package com.kotlin.zmvvm.network
 
+import com.kotlin.zmvvm.common.utils.Constant
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -21,7 +22,7 @@ class RetrofitFactory private constructor() {
 
     init {
         retrofit = Retrofit.Builder()
-            .baseUrl("")
+            .baseUrl(Constant.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .client(initOkHttpClient())
@@ -29,10 +30,10 @@ class RetrofitFactory private constructor() {
 
     }
 
-    companion object{
-     val instance by lazy {
-         RetrofitFactory()
-     }
+    companion object {
+        val instance by lazy {
+            RetrofitFactory()
+        }
     }
 
     private fun initOkHttpClient(): OkHttpClient {

@@ -14,10 +14,8 @@ import com.google.android.material.circularreveal.CircularRevealWidget
 import kotlin.math.hypot
 
 /**
- * Created with Android Studio.
- * Description:
- * @author: Wangjianxian
- * @CreateDate: 2020/4/5 20:25
+ * Created by zhgq on 2020/6/15
+ * Describe：
  */
 object RevealUtil{
     fun Activity.setReveal(savedInstanceState: Bundle?) {
