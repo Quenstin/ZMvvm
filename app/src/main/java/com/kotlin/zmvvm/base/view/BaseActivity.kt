@@ -37,6 +37,9 @@ abstract class BaseActivity : AppCompatActivity() {
     private val mDisposable: Disposable? = null
     lateinit var mRootView: View
 
+    /**
+     * 注册加载框架
+     */
     val loadService: LoadService<*> by lazy {
         LoadSir.getDefault().register(this) {
             reLoad()
