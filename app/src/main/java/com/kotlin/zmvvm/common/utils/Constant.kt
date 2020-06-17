@@ -12,5 +12,8 @@ object Constant {
     const val NIGHT_MODE = "night_mode"
 
 
+    const val LOGIN_KEY = "login"
+
+
 
 }
