@@ -10,7 +10,7 @@ import java.lang.StringBuilder
 
 /**
  * Created by zhgq on 2020/6/15
- * Describe：
+ * Describe：retrofit封装
  */
 class RetrofitFactory private constructor() {
 

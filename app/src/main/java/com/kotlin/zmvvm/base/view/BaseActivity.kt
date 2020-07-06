@@ -39,6 +39,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     /**
      * 注册加载框架
+     * view状态,null 错误 正常
      */
     val loadService: LoadService<*> by lazy {
         LoadSir.getDefault().register(this) {

@@ -5,7 +5,7 @@ import io.reactivex.disposables.Disposable
 
 /**
  * Created by zhgq on 2020/6/15
- * Describe：
+ * Describe：rep基类
  */
 open class BaseRepository {
     private val mCompositeDisposable by  lazy{ CompositeDisposable()}

@@ -10,7 +10,7 @@ import retrofit2.http.Query
 
 /**
  * Created by zhgq on 2020/6/15
- * Describe：
+ * Describe：接口列表
  */
 interface ApiService {
 
@@ -23,4 +23,6 @@ interface ApiService {
         @Query("username") username: String,
         @Query("password") password: String
     ): BaseResponse<LoginResponse>
+
+
 }

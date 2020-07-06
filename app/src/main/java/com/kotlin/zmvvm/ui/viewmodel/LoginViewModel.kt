@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 
 /**
  * Created by zhgq on 2020/6/17
- * Describe：
+ * Describe：vm 通过res获取数据
  */
 class LoginViewModel(application: Application) : BaseViewModel<LoginRepository>(application) {
 

@@ -8,9 +8,10 @@ import com.kotlin.zmvvm.ui.data.LoginResponse
 
 /**
  * Created by zhgq on 2020/6/17
- * Describe：登陆
+ * Describe：登陆res  使用协程+retorfit
  */
 class LoginRepository(val loadState: MutableLiveData<State>) : ApiRepository() {
+
     suspend fun login(userName: String, password: String): LoginResponse {
         return apiService.onLoginCo(userName, password).dataConvert(loadState)
     }

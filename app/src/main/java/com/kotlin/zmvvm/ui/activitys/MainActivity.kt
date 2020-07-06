@@ -6,8 +6,15 @@ import com.kotlin.zmvvm.R
 import com.kotlin.zmvvm.base.view.BaseLifeCycleActivity
 import com.kotlin.zmvvm.ui.viewmodel.LoginViewModel
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.toast
 
 class MainActivity : BaseLifeCycleActivity<LoginViewModel>() {
+
+
+    override fun getLayout(): Int {
+        return R.layout.activity_main
+    }
+
     override fun initView() {
         super.initView()
         showSuccess()
@@ -25,18 +32,22 @@ class MainActivity : BaseLifeCycleActivity<LoginViewModel>() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.activity_main
-    }
 
+    /**
+     * 返回键处理
+     */
     override fun onBackPressed() {
-        finish()
+//        finish()
     }
 
+    /**
+     * 订阅livedata 获得返回的数据
+     */
     override fun initDataObserver() {
         mViewModel.loginData.observe(this, Observer {
             it?.let { loginResponse ->
-                tvContent.text="${it.userName}${it.id}"
+                toast("登陆成功")
+                tvContent.text = it.id.toString()
 //                finish()
             }
         })

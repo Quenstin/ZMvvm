@@ -5,7 +5,7 @@ import com.kotlin.zmvvm.R
 
 /**
  * Created by zhgq on 2020/6/16
- * Describe：
+ * Describe：null回调
  */
 class EmptyCallBack : Callback() {
     override fun onCreateView(): Int {
