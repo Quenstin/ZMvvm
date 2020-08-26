@@ -3,7 +3,6 @@ package com.kotlin.zmvvm.common.view
 import android.content.Intent
 import android.graphics.Color
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.kotlin.zmvvm.R
 import com.kotlin.zmvvm.base.view.BaseLifeCycleFragment
 import com.kotlin.zmvvm.common.callback.CollectListener
@@ -16,7 +15,7 @@ import com.kotlin.zmvvm.common.viewmodel.ArticleViewModel
 import com.kotlin.zmvvm.interface_.LoginSuccessListener
 import com.kotlin.zmvvm.ui.activity.ArticleDetailActivity
 import com.kotlin.zmvvm.ui.home.adapter.ArticleListAdapter
-import com.kotlin.zmvvm.ui.home.data.ArticleBean
+import com.kotlin.zmvvm.ui.common.data.ArticleBean
 import kotlinx.android.synthetic.main.fragment_article_list.*
 import org.greenrobot.eventbus.Subscribe
 

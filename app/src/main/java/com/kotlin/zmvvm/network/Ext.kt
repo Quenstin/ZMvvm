@@ -3,6 +3,7 @@ package com.kotlin.zmvvm.network
 import androidx.lifecycle.MutableLiveData
 import com.kotlin.zmvvm.common.state.State
 import com.kotlin.zmvvm.common.state.StateType
+import com.kotlin.zmvvm.common.state.UserInfo
 import com.kotlin.zmvvm.common.utils.Constant
 import com.kotlin.zmvvm.network.response.BaseResponse
 
@@ -25,7 +26,7 @@ fun <T> BaseResponse<T>.dataConvert(
             return data
         }
         Constant.NOT_LOGIN -> {
-//            UserInfo.instance.logoutSuccess()
+            UserInfo.instance.logoutSuccess()
             loadState.postValue(State(StateType.ERROR, message = "请重新登录"))
             return data
         }

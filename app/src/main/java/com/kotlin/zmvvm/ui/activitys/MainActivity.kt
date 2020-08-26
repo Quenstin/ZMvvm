@@ -2,7 +2,6 @@ package com.kotlin.zmvvm.ui.activitys
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
-import android.os.Bundle
 import android.util.SparseArray
 import android.view.MenuItem
 import android.view.View
@@ -10,12 +9,10 @@ import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.color.colorChooser
 import com.kotlin.zmvvm.R
 import com.kotlin.zmvvm.base.view.BaseActivity
-import com.kotlin.zmvvm.base.view.BaseLifeCycleActivity
 import com.kotlin.zmvvm.common.state.UserInfo
 import com.kotlin.zmvvm.common.state.callback.LoginSuccessState
 import com.kotlin.zmvvm.common.utils.ChangeThemeEvent
@@ -24,7 +21,7 @@ import com.kotlin.zmvvm.common.utils.Constant
 import com.kotlin.zmvvm.common.utils.SPreference
 import com.kotlin.zmvvm.interface_.LoginSuccessListener
 import com.kotlin.zmvvm.ui.home.view.HomeFragment
-import com.kotlin.zmvvm.ui.viewmodel.LoginViewModel
+import com.kotlin.zmvvm.ui.wechat.view.WeChatFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.layout_drawer_header.view.*
 import kotlinx.android.synthetic.main.layout_toolbar.*
@@ -69,22 +66,26 @@ class MainActivity : BaseActivity(), LoginSuccessListener {
                 R.id.menu_wechat->{
                     fab_add.visibility=View.GONE
                     setToolBarTitle(toolbar,"公众号")
+                    switchFragment(Constant.WECHAT)
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.menu_system->{
                     fab_add.visibility=View.GONE
                     setToolBarTitle(toolbar,"体系")
+                    switchFragment(Constant.SYSTEM)
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.menu_navigation->{
                     fab_add.visibility=View.GONE
                     setToolBarTitle(toolbar,"导航")
+                    switchFragment(Constant.NAVIGATION)
                     return@setOnNavigationItemSelectedListener true
                 }
 
                 R.id.menu_project->{
                     fab_add.visibility=View.GONE
                     setToolBarTitle(toolbar,"项目")
+                    switchFragment(Constant.PROJECT)
                     return@setOnNavigationItemSelectedListener true
                 }
                 else -> return@setOnNavigationItemSelectedListener false
@@ -127,16 +128,14 @@ class MainActivity : BaseActivity(), LoginSuccessListener {
     }
 
     private fun getFragment(index: Int): Fragment? {
-        var fragment:Fragment?=mFragmentSparseArray.get(index)
-        if (fragment==null){
-            when(index){
-                Constant.HOME->  fragment=HomeFragment.getIntance()
-
-
+        var fragment: Fragment? = mFragmentSparseArray.get(index)
+        if (fragment == null) {
+            when (index) {
+                Constant.HOME -> fragment = HomeFragment.getInstance()
+                Constant.WECHAT -> fragment = WeChatFragment.getInstance()
             }
-            mFragmentSparseArray.put(index,fragment)
+            mFragmentSparseArray.put(index, fragment)
         }
-
         return fragment!!
 
     }
@@ -262,7 +261,7 @@ class MainActivity : BaseActivity(), LoginSuccessListener {
     }
 
     override fun loginSuccess(userName: String, userId: String, collectArticleIds: List<Int>?) {
-        TODO("Not yet implemented")
+
     }
 
 

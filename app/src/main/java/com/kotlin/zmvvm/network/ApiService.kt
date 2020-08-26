@@ -3,10 +3,11 @@ package com.kotlin.zmvvm.network
 import com.kotlin.zmvvm.network.response.BaseResponse
 import com.kotlin.zmvvm.network.response.EmptyResponse
 import com.kotlin.zmvvm.ui.data.LoginResponse
-import com.kotlin.zmvvm.ui.home.data.ArticleBean
+import com.kotlin.zmvvm.ui.common.data.ArticleBean
 import com.kotlin.zmvvm.ui.home.data.BannerResponseBean
 import com.kotlin.zmvvm.ui.home.data.HomeArticleResponseBean
-import io.reactivex.Observable
+import com.kotlin.zmvvm.ui.wechat.data.WeChatArticleResponse
+import com.kotlin.zmvvm.ui.wechat.data.WeChatTabNameResponse
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
@@ -42,6 +43,14 @@ interface ApiService {
 
     @GET("/article/list/{pageNum}/json")
     suspend fun loadHomeArticleCo(@Path("pageNum") pageNum: Int): BaseResponse<HomeArticleResponseBean>
+
+
+    @GET("/wxarticle/chapters/json")
+    suspend fun loadWeChatTabCo(): BaseResponse<List<WeChatTabNameResponse>>
+
+    @GET("/wxarticle/list/{cid}/{pageNum}/json")
+    suspend fun loadWeChatArticlesCo(@Path("cid") cid: Int, @Path("pageNum") page: Int)
+            : BaseResponse<WeChatArticleResponse>
 
 
 

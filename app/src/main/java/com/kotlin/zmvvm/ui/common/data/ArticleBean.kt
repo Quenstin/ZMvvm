@@ -1,4 +1,4 @@
-package com.kotlin.zmvvm.ui.home.data
+package com.kotlin.zmvvm.ui.common.data
 
 /**
  * Created by zhgq on 2020/7/16

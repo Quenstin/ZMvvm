@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.kotlin.zmvvm.common.viewmodel.ArticleViewModel
-import com.kotlin.zmvvm.ui.home.data.ArticleBean
+import com.kotlin.zmvvm.ui.common.data.ArticleBean
 import com.kotlin.zmvvm.ui.home.data.BannerResponseBean
 import com.kotlin.zmvvm.ui.home.data.HomeArticleResponseBean
 import com.kotlin.zmvvm.ui.home.repository.HomeRepository

@@ -3,12 +3,11 @@ package com.kotlin.zmvvm.ui.home.adapter
 import android.os.Build
 import android.text.Html
 import androidx.annotation.RequiresApi
-import androidx.lifecycle.MutableLiveData
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.kotlin.zmvvm.R
 import com.kotlin.zmvvm.common.utils.ColorUtil
-import com.kotlin.zmvvm.ui.home.data.ArticleBean
+import com.kotlin.zmvvm.ui.common.data.ArticleBean
 import kotlinx.android.synthetic.main.item_article_list.view.*
 
 /**
@@ -20,10 +19,7 @@ class ArticleListAdapter(layoutId: Int, listData: MutableList<ArticleBean>?) :
 
 
     override fun convert(helper: BaseViewHolder?, item: ArticleBean?) {
-        helper?.let {
-                holder ->
-            holder.itemView.article_material_card.rippleColor = ColorUtil.getOneColorStateList(mContext)
-            holder.itemView.article_material_card.strokeColor = ColorUtil.getColor(mContext)
+        helper?.let { holder ->
             item?.let {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                     holder.setText(R.id.item_home_author, handleAuthor(it))
@@ -42,15 +38,15 @@ class ArticleListAdapter(layoutId: Int, listData: MutableList<ArticleBean>?) :
 
 
     @RequiresApi(Build.VERSION_CODES.N)
-    private fun handleTitle(article: ArticleBean) : String {
+    private fun handleTitle(article: ArticleBean): String {
         article.let {
             return Html.fromHtml(it.title, Html.FROM_HTML_MODE_COMPACT).toString()
         }
     }
 
-    private fun handleAuthor(article: ArticleBean) : String {
+    private fun handleAuthor(article: ArticleBean): String {
         article.let {
-            return when{
+            return when {
                 it.author.isNullOrEmpty() and it.shareUser.isNullOrEmpty() -> "匿名用户"
                 it.author.isNullOrEmpty() -> "作者：${it.shareUser}" ?: ""
                 it.shareUser.isNullOrEmpty() -> "作者：${it.author}" ?: ""
@@ -59,9 +55,9 @@ class ArticleListAdapter(layoutId: Int, listData: MutableList<ArticleBean>?) :
         }
     }
 
-    private fun handleCategory(article :ArticleBean) : String {
+    private fun handleCategory(article: ArticleBean): String {
         article.let {
-            return when{
+            return when {
                 it.superChapterName.isNullOrEmpty() and it.chapterName.isNullOrEmpty() -> ""
                 it.superChapterName.isNullOrEmpty() -> it.chapterName ?: ""
                 it.chapterName.isNullOrEmpty() -> it.superChapterName ?: ""
@@ -70,6 +66,7 @@ class ArticleListAdapter(layoutId: Int, listData: MutableList<ArticleBean>?) :
         }
     }
 
-    private fun isCollect(article: ArticleBean) :Int = if (article.collect) R.drawable.collect_selector_icon else R.drawable.uncollect_selector_icon
+    private fun isCollect(article: ArticleBean): Int =
+        if (article.collect) R.drawable.collect_selector_icon else R.drawable.uncollect_selector_icon
 
 }

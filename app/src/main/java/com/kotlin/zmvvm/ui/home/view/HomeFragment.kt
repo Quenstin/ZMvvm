@@ -7,7 +7,7 @@ import com.kotlin.zmvvm.R
 import com.kotlin.zmvvm.common.utils.GlideImageLoader
 import com.kotlin.zmvvm.common.view.ArticleListFragment
 import com.kotlin.zmvvm.ui.activity.ArticleDetailActivity
-import com.kotlin.zmvvm.ui.home.data.ArticleBean
+import com.kotlin.zmvvm.ui.common.data.ArticleBean
 import com.kotlin.zmvvm.ui.home.data.BannerResponseBean
 import com.kotlin.zmvvm.ui.home.viewmodel.HomeViewModel
 import com.youth.banner.Banner
@@ -35,7 +35,7 @@ class HomeFragment : ArticleListFragment<HomeViewModel>() {
     private var mTopArticlesLoadTimes = 0
 
     companion object {
-        fun getIntance(): HomeFragment {
+        fun getInstance(): HomeFragment {
             return HomeFragment()
         }
     }
