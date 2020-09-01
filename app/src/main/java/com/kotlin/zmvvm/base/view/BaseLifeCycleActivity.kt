@@ -23,39 +23,26 @@ abstract class BaseLifeCycleActivity<VM : BaseViewModel<*>> : BaseActivity() {
 
     override fun initView() {
         showLoading()
-        mViewModel = ViewModelProvider(this).get(CommonUtil.getClass(this))
+
+        mViewModel = ViewModelProviders.of(this).get(CommonUtil.getClass(this))
+
         mViewModel.loadState.observe(this, observer)
 
+        // 初始化View的Observer
         initDataObserver()
-
     }
 
     abstract fun initDataObserver()
 
-    /**
-     * 加载中
-     */
+
     open fun showLoading() {
         loadService.showCallback(LoadingCallBack::class.java)
     }
 
-    /**
-     * 成功没有提示信息
-     */
     open fun showSuccess() {
         loadService.showCallback(SuccessCallback::class.java)
     }
 
-    /**
-     * 空数据
-     */
-    open fun showEmpty() {
-        loadService.showCallback(EmptyCallBack::class.java)
-    }
-
-    /**
-     * 失败
-     */
     open fun showError(msg: String) {
         if (!TextUtils.isEmpty(msg)) {
             toast(msg)
@@ -63,15 +50,15 @@ abstract class BaseLifeCycleActivity<VM : BaseViewModel<*>> : BaseActivity() {
         loadService.showCallback(ErrorCallBack::class.java)
     }
 
-    /**
-     * 成功有提示信息
-     */
     open fun showTip(msg: String) {
         if (!TextUtils.isEmpty(msg)) {
             toast(msg)
         }
         loadService.showCallback(SuccessCallback::class.java)
+    }
 
+    open fun showEmpty() {
+        loadService.showCallback(EmptyCallBack::class.java)
     }
 
     /**
@@ -91,4 +78,6 @@ abstract class BaseLifeCycleActivity<VM : BaseViewModel<*>> : BaseActivity() {
             }
         }
     }
+
+
 }

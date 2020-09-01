@@ -10,5 +10,4 @@ data class LoginResponse(
     var id: Int,
     var collectId: List<Int>,
     var userName: String
-) {
-}
+)

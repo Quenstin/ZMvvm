@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/flowTag"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="6dp"
+    android:background="@drawable/sys_tab_bg"
+    android:gravity="center"
+    android:textSize="15sp"
+    android:paddingTop="@dimen/safe_padding"
+    android:paddingBottom="@dimen/safe_padding"
+    android:paddingStart="@dimen/safe_padding"
+    android:paddingEnd="@dimen/safe_padding"
+    android:textColor="@color/colorPrimary"
+    >
+
+</TextView>

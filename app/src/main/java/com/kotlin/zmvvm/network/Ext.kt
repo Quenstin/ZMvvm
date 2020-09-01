@@ -12,9 +12,7 @@ import com.kotlin.zmvvm.network.response.BaseResponse
  * Describe：拓展函数
  */
 
-fun <T> BaseResponse<T>.dataConvert(
-    loadState: MutableLiveData<State>
-) : T{
+fun <T> BaseResponse<T>.dataConvert(loadState: MutableLiveData<State>) : T{
     when (errorCode) {
         Constant.SUCCESS -> {
             if (data is List<*>) {

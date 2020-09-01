@@ -1,20 +1,16 @@
-package com.kotlin.zmvvm.ui.activity
+package com.kotlin.zmvvm.ui.activitys
 
 import android.Manifest
-import android.animation.Animator
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import com.airbnb.lottie.LottieAnimationView
 import com.kotlin.zmvvm.R
 import com.kotlin.zmvvm.common.permission.PermissionResult
 import com.kotlin.zmvvm.common.permission.Permissions
 import com.kotlin.zmvvm.common.utils.Constant
-import com.kotlin.zmvvm.ui.activitys.MainActivity
 import pub.devrel.easypermissions.AfterPermissionGranted
 import pub.devrel.easypermissions.AppSettingsDialog
 

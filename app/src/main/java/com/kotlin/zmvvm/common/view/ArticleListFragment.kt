@@ -13,7 +13,7 @@ import com.kotlin.zmvvm.common.utils.ColorUtil
 import com.kotlin.zmvvm.common.utils.SpeedLayoutManager
 import com.kotlin.zmvvm.common.viewmodel.ArticleViewModel
 import com.kotlin.zmvvm.interface_.LoginSuccessListener
-import com.kotlin.zmvvm.ui.activity.ArticleDetailActivity
+import com.kotlin.zmvvm.ui.activitys.ArticleDetailActivity
 import com.kotlin.zmvvm.ui.home.adapter.ArticleListAdapter
 import com.kotlin.zmvvm.ui.common.data.ArticleBean
 import kotlinx.android.synthetic.main.fragment_article_list.*

@@ -1,14 +1,10 @@
 package com.kotlin.zmvvm.common.repository
 
 import androidx.lifecycle.MutableLiveData
-import com.kotlin.zmvvm.base.observer.BaseObserver
 import com.kotlin.zmvvm.base.repository.ApiRepository
 import com.kotlin.zmvvm.common.state.State
 import com.kotlin.zmvvm.network.dataConvert
-import com.kotlin.zmvvm.network.response.BaseResponse
 import com.kotlin.zmvvm.network.response.EmptyResponse
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 

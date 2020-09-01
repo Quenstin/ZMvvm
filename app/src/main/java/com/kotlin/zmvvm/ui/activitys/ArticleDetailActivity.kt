@@ -1,4 +1,4 @@
-package com.kotlin.zmvvm.ui.activity
+package com.kotlin.zmvvm.ui.activitys
 
 import com.kotlin.zmvvm.base.view.BaseActivity
 

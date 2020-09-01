@@ -6,7 +6,7 @@ import androidx.lifecycle.Observer
 import com.kotlin.zmvvm.R
 import com.kotlin.zmvvm.common.utils.GlideImageLoader
 import com.kotlin.zmvvm.common.view.ArticleListFragment
-import com.kotlin.zmvvm.ui.activity.ArticleDetailActivity
+import com.kotlin.zmvvm.ui.activitys.ArticleDetailActivity
 import com.kotlin.zmvvm.ui.common.data.ArticleBean
 import com.kotlin.zmvvm.ui.home.data.BannerResponseBean
 import com.kotlin.zmvvm.ui.home.viewmodel.HomeViewModel

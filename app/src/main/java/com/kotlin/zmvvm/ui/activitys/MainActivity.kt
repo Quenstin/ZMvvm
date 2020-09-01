@@ -21,6 +21,7 @@ import com.kotlin.zmvvm.common.utils.Constant
 import com.kotlin.zmvvm.common.utils.SPreference
 import com.kotlin.zmvvm.interface_.LoginSuccessListener
 import com.kotlin.zmvvm.ui.home.view.HomeFragment
+import com.kotlin.zmvvm.ui.system.view.SystemFragment
 import com.kotlin.zmvvm.ui.wechat.view.WeChatFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.layout_drawer_header.view.*
@@ -132,6 +133,7 @@ class MainActivity : BaseActivity(), LoginSuccessListener {
         if (fragment == null) {
             when (index) {
                 Constant.HOME -> fragment = HomeFragment.getInstance()
+                Constant.SYSTEM -> fragment=SystemFragment.getInstance()
                 Constant.WECHAT -> fragment = WeChatFragment.getInstance()
             }
             mFragmentSparseArray.put(index, fragment)
