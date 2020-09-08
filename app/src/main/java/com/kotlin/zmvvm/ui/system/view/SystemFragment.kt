@@ -13,7 +13,7 @@ import org.greenrobot.eventbus.Subscribe
 
 /**
  * Created by zhgq on 2020/8/28
- * Describe：
+ * Describe：体系
  */
 class SystemFragment : BaseLifeCycleFragment<SystemViewModel>() {
     private lateinit var mAdapter: SystemListAdapter

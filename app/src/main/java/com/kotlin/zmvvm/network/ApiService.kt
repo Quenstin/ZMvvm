@@ -6,6 +6,7 @@ import com.kotlin.zmvvm.ui.data.LoginResponse
 import com.kotlin.zmvvm.ui.common.data.ArticleBean
 import com.kotlin.zmvvm.ui.home.data.BannerResponseBean
 import com.kotlin.zmvvm.ui.home.data.HomeArticleResponseBean
+import com.kotlin.zmvvm.ui.navigation.data.NavgationBean
 import com.kotlin.zmvvm.ui.system.data.SystemArticleResponse
 import com.kotlin.zmvvm.ui.system.data.SystemTabNameResponse
 import com.kotlin.zmvvm.ui.wechat.data.WeChatArticleResponse
@@ -63,6 +64,9 @@ interface ApiService {
         @Path("pageNum") pageNum: Int,
         @Query("cid") id: Int?
     ): BaseResponse<SystemArticleResponse>
+
+    @GET("/navi/json")
+    suspend fun loadNavigationTabCo(): BaseResponse<List<NavgationBean>>
 
 
 
