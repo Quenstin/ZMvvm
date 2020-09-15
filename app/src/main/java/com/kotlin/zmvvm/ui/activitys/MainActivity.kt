@@ -2,6 +2,7 @@ package com.kotlin.zmvvm.ui.activitys
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
+import android.os.Bundle
 import android.util.SparseArray
 import android.view.MenuItem
 import android.view.View
@@ -26,6 +27,7 @@ import com.kotlin.zmvvm.ui.project.view.ProjectFragment
 import com.kotlin.zmvvm.ui.system.view.SystemFragment
 import com.kotlin.zmvvm.ui.wechat.view.WeChatFragment
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_article_list.*
 import kotlinx.android.synthetic.main.layout_drawer_header.view.*
 import kotlinx.android.synthetic.main.layout_toolbar.*
 import org.jetbrains.anko.toast
@@ -40,13 +42,32 @@ class MainActivity : BaseActivity(), LoginSuccessListener {
 
     private val mFragmentSparseArray = SparseArray<Fragment>()
 
-    private var mLastIndex = 1
+    private var mLastIndex = -1
 
     private lateinit var mHeadView: View
 
     private var mCurrentFragment: Fragment? = null
 
     private var mLastFragment: Fragment? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        if(savedInstanceState==null){
+            switchFragment(Constant.HOME)
+        }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt("index",mLastIndex)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        // 恢复recreate前的页面
+        mLastIndex = savedInstanceState.getInt("index")
+        switchFragment(mLastIndex)
+    }
 
 
     override fun initView() {
@@ -61,33 +82,33 @@ class MainActivity : BaseActivity(), LoginSuccessListener {
         bottom_navigation.setOnNavigationItemSelectedListener { item: MenuItem ->
             when (item.itemId) {
                 R.id.menu_home -> {
-                    fab_add.visibility=View.VISIBLE
-                    setToolBarTitle(toolbar,"首页")
+                    fab_add.visibility = View.VISIBLE
+                    setToolBarTitle(toolbar, "首页")
                     switchFragment(Constant.HOME)
                     return@setOnNavigationItemSelectedListener true
                 }
-                R.id.menu_wechat->{
-                    fab_add.visibility=View.GONE
-                    setToolBarTitle(toolbar,"公众号")
+                R.id.menu_wechat -> {
+                    fab_add.visibility = View.GONE
+                    setToolBarTitle(toolbar, "公众号")
                     switchFragment(Constant.WECHAT)
                     return@setOnNavigationItemSelectedListener true
                 }
-                R.id.menu_system->{
-                    fab_add.visibility=View.GONE
-                    setToolBarTitle(toolbar,"体系")
+                R.id.menu_system -> {
+                    fab_add.visibility = View.GONE
+                    setToolBarTitle(toolbar, "体系")
                     switchFragment(Constant.SYSTEM)
                     return@setOnNavigationItemSelectedListener true
                 }
-                R.id.menu_navigation->{
-                    fab_add.visibility=View.GONE
-                    setToolBarTitle(toolbar,"导航")
+                R.id.menu_navigation -> {
+                    fab_add.visibility = View.GONE
+                    setToolBarTitle(toolbar, "导航")
                     switchFragment(Constant.NAVIGATION)
                     return@setOnNavigationItemSelectedListener true
                 }
 
-                R.id.menu_project->{
-                    fab_add.visibility=View.GONE
-                    setToolBarTitle(toolbar,"项目")
+                R.id.menu_project -> {
+                    fab_add.visibility = View.GONE
+                    setToolBarTitle(toolbar, "项目")
                     switchFragment(Constant.PROJECT)
                     return@setOnNavigationItemSelectedListener true
                 }
@@ -100,10 +121,10 @@ class MainActivity : BaseActivity(), LoginSuccessListener {
     }
 
     private fun switchFragment(index: Int) {
-        val fragmentManager=supportFragmentManager
-        val transaction=fragmentManager.beginTransaction()
-        mCurrentFragment=fragmentManager.findFragmentByTag(index.toString())
-        mLastFragment=fragmentManager.findFragmentByTag(mLastIndex.toString())
+        val fragmentManager = supportFragmentManager
+        val transaction = fragmentManager.beginTransaction()
+        mCurrentFragment = fragmentManager.findFragmentByTag(index.toString())
+        mLastFragment = fragmentManager.findFragmentByTag(mLastIndex.toString())
 
         if (index != mLastIndex) {
             if (mLastFragment != null) {
@@ -135,10 +156,10 @@ class MainActivity : BaseActivity(), LoginSuccessListener {
         if (fragment == null) {
             when (index) {
                 Constant.HOME -> fragment = HomeFragment.getInstance()
-                Constant.SYSTEM -> fragment=SystemFragment.getInstance()
+                Constant.SYSTEM -> fragment = SystemFragment.getInstance()
                 Constant.WECHAT -> fragment = WeChatFragment.getInstance()
-                Constant.NAVIGATION -> fragment=NavigationFragment.getInstance()
-                Constant.PROJECT -> fragment= ProjectFragment.getInstance()
+                Constant.NAVIGATION -> fragment = NavigationFragment.getInstance()
+                Constant.PROJECT -> fragment = ProjectFragment.getInstance()
             }
             mFragmentSparseArray.put(index, fragment)
         }
@@ -158,7 +179,7 @@ class MainActivity : BaseActivity(), LoginSuccessListener {
     private fun initFabButton() {
         fab_add.setOnClickListener {
             //数据置顶
-//            mCurrentFragment!!.mRvArticle!!.smoothScrollToPosition(0)
+            mCurrentFragment!!.mRvArticle!!.smoothScrollToPosition(0)
             val objectAnimatorX =
                 ObjectAnimator.ofFloat(fab_add, "scaleX", 1.0f, 1.2f, 0.0f)
             objectAnimatorX.interpolator = AccelerateDecelerateInterpolator()

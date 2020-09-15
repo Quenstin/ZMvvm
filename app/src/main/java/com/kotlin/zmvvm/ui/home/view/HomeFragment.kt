@@ -1,6 +1,7 @@
 package com.kotlin.zmvvm.ui.home.view
 
 import android.content.Intent
+import android.util.Log
 import android.view.View
 import androidx.lifecycle.Observer
 import com.kotlin.zmvvm.R
@@ -42,6 +43,8 @@ class HomeFragment : ArticleListFragment<HomeViewModel>() {
 
     override fun initView() {
         super.initView()
+        Log.e("initView-->","-----");
+
         val headView = View.inflate(activity, R.layout.layout_home_headview, null)
         mBanner = headView.mBanner
         mBanner.setOnBannerListener { position ->
@@ -60,6 +63,8 @@ class HomeFragment : ArticleListFragment<HomeViewModel>() {
 
 
     override fun initData() {
+        super.initData()
+        Log.e("initData-->","-----");
         mCurrentPage = 0
         mTopArticlesLoadTimes = 0
         mViewModel.loadBannerData()
@@ -67,10 +72,11 @@ class HomeFragment : ArticleListFragment<HomeViewModel>() {
     }
 
     override fun initDataObserver() {
+        Log.e("initDataObserver-->","-----");
         super.initDataObserver()
         mViewModel.mBannerData.observe(this, Observer { t ->
             t?.let {
-                setBannerData(t)
+                setBannerData(it)
             }
         })
 

@@ -2,11 +2,9 @@ package com.kotlin.zmvvm.ui.navigation.view
 
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.kotlin.zmvvm.R
 import com.kotlin.zmvvm.base.view.BaseLifeCycleFragment
-import com.kotlin.zmvvm.ui.navigation.NavigationAdapter
-import com.kotlin.zmvvm.ui.navigation.adapter.NavigationNewAdapter
+import com.kotlin.zmvvm.ui.navigation.adapter.NavigationAdapter
 import com.kotlin.zmvvm.ui.navigation.viewmodel.NavigationViewModel
 import kotlinx.android.synthetic.main.fragment_navigation.*
 
@@ -18,7 +16,6 @@ import kotlinx.android.synthetic.main.fragment_navigation.*
 class NavigationFragment : BaseLifeCycleFragment<NavigationViewModel>() {
 
     private lateinit var mAdapter: NavigationAdapter
-//    private lateinit var mAdapter: NavigationNewAdapter
 
     companion object {
         fun getInstance(): NavigationFragment {
@@ -30,8 +27,7 @@ class NavigationFragment : BaseLifeCycleFragment<NavigationViewModel>() {
     override fun initView() {
         super.initView()
         navRecycle.layoutManager=LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)
-        mAdapter= NavigationAdapter(R.layout.item_fragment_navigation,null)
-//        mAdapter= NavigationNewAdapter(null)
+        mAdapter= NavigationAdapter(null)
         navRecycle.adapter=mAdapter
     }
 

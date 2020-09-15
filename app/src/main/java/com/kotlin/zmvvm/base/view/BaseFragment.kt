@@ -1,8 +1,10 @@
 package com.kotlin.zmvvm.base.view
 
+import android.content.Context
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +17,7 @@ import com.kotlin.zmvvm.R
 import com.kotlin.zmvvm.common.utils.ChangeThemeEvent
 import com.kotlin.zmvvm.common.utils.ColorUtil
 import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.Logger
 import org.greenrobot.eventbus.Subscribe
 import java.util.*
 
@@ -44,7 +47,10 @@ abstract class BaseFragment : Fragment() {
         }
         initView()
         initData()
+        Log.e("initvd-->","-----")
     }
+
+
 
     abstract fun initView()
 

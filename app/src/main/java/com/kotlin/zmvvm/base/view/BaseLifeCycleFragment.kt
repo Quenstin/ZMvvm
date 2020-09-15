@@ -25,7 +25,7 @@ abstract class BaseLifeCycleFragment<VM : BaseViewModel<*>> : BaseFragment() {
     override fun initView() {
         showLoading()
         mViewModel = ViewModelProvider(this).get(CommonUtil.getClass(this))
-        mViewModel.loadState.observe(this,observer)
+        mViewModel.loadState.observe(this, observer)
         initDataObserver()
 
     }
@@ -60,9 +60,9 @@ abstract class BaseLifeCycleFragment<VM : BaseViewModel<*>> : BaseFragment() {
     }
 
     private val observer by lazy {
-        Observer<State>{
+        Observer<State> {
             it?.let {
-                when(it.code){
+                when (it.code) {
                     StateType.SUCCESS -> showSuccess()
                     StateType.LOADING -> showLoading()
                     StateType.ERROR -> showTip(it.message)
@@ -72,5 +72,10 @@ abstract class BaseLifeCycleFragment<VM : BaseViewModel<*>> : BaseFragment() {
                 }
             }
         }
+    }
+
+    override fun reload() {
+        showLoading()
+        super.reload()
     }
 }

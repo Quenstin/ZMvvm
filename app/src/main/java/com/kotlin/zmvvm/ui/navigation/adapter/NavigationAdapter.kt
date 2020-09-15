@@ -3,31 +3,30 @@ package com.kotlin.zmvvm.ui.navigation.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.TextView
-import com.chad.library.adapter.base.BaseSectionQuickAdapter
+import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.kotlin.zmvvm.R
 import com.kotlin.zmvvm.common.utils.ColorUtil
 import com.kotlin.zmvvm.ui.navigation.data.NavgationBean
-import com.kotlin.zmvvm.ui.navigation.data.NavgationBeanHead
 import com.kotlin.zmvvm.ui.navigation.data.NavgationLableData
 import com.zhy.view.flowlayout.FlowLayout
 import com.zhy.view.flowlayout.TagAdapter
 import kotlinx.android.synthetic.main.item_fragment_navigation.view.*
 
 /**
- * Created by zhgq on 2020/9/9
+ * Created by zhgq on 2020/9/8
  * Describe：
  * @author 13718
  */
-class NavigationNewAdapter(
-    data: List<NavgationBeanHead?>?
-) : BaseSectionQuickAdapter<NavgationBeanHead, BaseViewHolder>(R.layout.nav_head_title, R.layout.item_fragment_navigation, data) {
+public class NavigationAdapter(listData: MutableList<NavgationBean>?) :
+    BaseQuickAdapter<NavgationBean, BaseViewHolder>(R.layout.item_fragment_navigation, listData) {
 
-    override fun convert(helper: BaseViewHolder?, item: NavgationBeanHead?) {
+
+    override fun convert(helper: BaseViewHolder?, item: NavgationBean?) {
 
         helper?.let { helper ->
-            val data = item?.t
-            data?.let {
+            item?.let {
+                helper.itemView.navTiele.text=it.name
                 helper.itemView.nav_label_layout.adapter =
                     object : TagAdapter<NavgationLableData>(it.articles) {
                         override fun getView(
@@ -45,17 +44,6 @@ class NavigationNewAdapter(
                     }
             }
         }
-
-    }
-
-    override fun convertHead(helper: BaseViewHolder?, item: NavgationBeanHead?) {
-        item?.let {
-            val data=item.t
-            data?.let {
-                helper?.setText(R.id.headTitle,it.name)
-            }
-        }
-
 
 
     }

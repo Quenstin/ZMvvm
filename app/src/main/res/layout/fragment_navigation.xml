@@ -4,10 +4,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.flyco.tablayout.CommonTabLayout
-        android:id="@+id/navTab"
-        android:layout_width="match_parent"
-        android:layout_height="50dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/navRecycle"
