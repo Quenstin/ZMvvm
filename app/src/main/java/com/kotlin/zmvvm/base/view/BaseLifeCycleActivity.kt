@@ -24,7 +24,7 @@ abstract class BaseLifeCycleActivity<VM : BaseViewModel<*>> : BaseActivity() {
     override fun initView() {
         showLoading()
 
-        mViewModel = ViewModelProviders.of(this).get(CommonUtil.getClass(this))
+        mViewModel = ViewModelProvider(this).get(CommonUtil.getClass(this))
 
         mViewModel.loadState.observe(this, observer)
 

@@ -11,8 +11,7 @@ import com.kotlin.zmvvm.common.utils.CommonUtil
  * Created by zhgq on 2020/6/16
  * Describe：viewModel 基类
  */
-open class BaseViewModel<T : BaseRepository>(application: Application) :
-    AndroidViewModel(application) {
+open class BaseViewModel<T : BaseRepository>(application: Application) : AndroidViewModel(application) {
 
     val loadState by lazy {
         MutableLiveData<State>()

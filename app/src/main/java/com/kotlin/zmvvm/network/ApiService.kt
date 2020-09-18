@@ -34,14 +34,14 @@ interface ApiService {
         @Query("password") password: String
     ): BaseResponse<LoginResponse>
 
-    @POST("/lg/collect/{id}/json" )
-    suspend fun collect(@Path("id")id:Int):BaseResponse<EmptyResponse>
+    @POST("/lg/collect/{id}/json")
+    suspend fun collect(@Path("id") id: Int): BaseResponse<EmptyResponse>
 
     @POST("/lg/uncollect_originId/{id}/json")
     suspend fun unCollect(@Path("id") id: Int): BaseResponse<EmptyResponse>
 
     @GET("/banner/json")
-    suspend fun loadBannerCo() : BaseResponse<List<BannerResponseBean>>
+    suspend fun loadBannerCo(): BaseResponse<List<BannerResponseBean>>
 
     @GET("/article/top/json")
     suspend fun loadTopArticleCo(): BaseResponse<List<ArticleBean>>
@@ -78,7 +78,6 @@ interface ApiService {
         @Path("pageNum") pageNum: Int,
         @Query("cid") cid: Int
     ): BaseResponse<ProjectBean>
-
 
 
 }

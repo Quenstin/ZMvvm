@@ -47,7 +47,7 @@ abstract class ArticleListActivity <VM : ArticleViewModel<*>> : BaseLifeCycleAct
             val article = mAdapter.getItem(position)
 
             article?.let {
-                val intent : Intent = Intent(this, ArticleDetailActivity::class.java)
+                val intent  = Intent(this, ArticleDetailActivity::class.java)
                 intent.putExtra("url", it.link)
                 intent.putExtra("title", it.title)
                 startActivity(intent)
