@@ -27,7 +27,7 @@
         <activity
             android:name=".ui.activitys.SplashActivity"
             android:configChanges="orientation|keyboardHidden|navigation|locale"
-            android:theme="@style/App.Theme.Launch">
+            android:theme="@style/AnimActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

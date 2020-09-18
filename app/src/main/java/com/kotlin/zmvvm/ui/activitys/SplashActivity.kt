@@ -11,6 +11,9 @@ import com.kotlin.zmvvm.R
 import com.kotlin.zmvvm.common.permission.PermissionResult
 import com.kotlin.zmvvm.common.permission.Permissions
 import com.kotlin.zmvvm.common.utils.Constant
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import pub.devrel.easypermissions.AfterPermissionGranted
 import pub.devrel.easypermissions.AppSettingsDialog
 
@@ -46,8 +49,12 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun startIntent() {
-        startActivity(Intent(this@SplashActivity, MainActivity::class.java))
-        overridePendingTransition(R.anim.alpha_in, R.anim.alpha_out)
+        GlobalScope.launch {
+            delay(3000)
+            startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+            overridePendingTransition(R.anim.alpha_in, R.anim.alpha_out)
+        }
+
     }
 
     override fun onStop() {
